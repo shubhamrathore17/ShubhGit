@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WELCOME IN PROPERTY RENTAL APPLICATION </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body{
+    background-image: url('/media/06b.jpg/');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+
+  }
+
+  </style>
+</head>
+  <body>
+   <b><marquee width="100%" direction="right" height="100px" behavior="alternate" scrollamount=9 onmousedown="this.stop()": onmouseup="this.start()":> 
+ALL YOUR FAVOURITE IS HERE, COME AND JOIN US TODAY.
+  </marquee><b>
+    <center>
+    <header>
+      <h1> PROPERTY RENTAL APPLICATION</h1>
+      {% if user.is_authenticated %}
+        <h5><b><a href="{% url 'logout' %}">logout</a><br><br></b></h5>
+        <h5><b><a href="{% url 'change_password' %}">change password</a><br><br></b></h5>
+        <h5><b><a href="{% url 'profile_page_rental' %}">USER PROFILE</a></b></h5>
+        {# <h5><b><a href="{% url 'api' %}">API of this app/model</a><br><br></b></h5> #}
+      {% else %}
+        <a href="{% url 'login' %}">login</a> / <a href="{% url 'register' %}">register</a>
+      {% endif %}
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      {% block js%}
+      {%endblock%}
+    </main>
+    </center>
+  </body>
+</html>

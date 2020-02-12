@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%load static %}
+{% block content %}
+<body>
+	<center>
+<h3><b><i><u>Property Detail</u></i></b></h3>
+<p><b>Property Picture:<br> </b><img src="{{property.property_pic.url}}"></p>
+<p><b>Title:</b> {{property.title}}</p>
+<p><b>Description: </b>{{property.description}}</p>
+<p><b>Created By:</b> {{property.user.first_name}}  {{property.user.last_name}} <small>(" {{property.user.username}} ")</small> </p>
+<p><b>address: </b>{{property.address}}</p>
+<p><b>price: </b> {{property.price}}</p>
+<p><b>sqft:</b> {{property.sqft}}</p>
+
+<a href="{% url 'home' %}"> CLICk HERE FOR HOME PAGE</a><br>
+<a href="{% url 'profile_page' property.user.profile.id %}">PROFILE OF PROPERTY OWNER</a><br>
+<header>
+	{% if request.user.username == property.user.username %}
+		<a href="{% url 'edit_property' property.pk %}">EDIT PROPERTY</a><br>
+		<a href="{% url 'delete_property' property.id %}"><b>Delete picture</b></a><br>
+	{% endif %}
+		<hr>
+-</header>
+</center>
+</body>
+{% endblock %}

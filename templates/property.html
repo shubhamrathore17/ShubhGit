@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%load static %}
+{% block content %}
+<body  bgcolor="yellow">
+    <center>
+    <h3>Properties</h3>
+    <form action="/artical/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        Title: <input type="text" name="title" required='required'><br><br>
+        Property_pic : <input type="file" name="property_pic" required='required' ><br><br>
+        price: <input type="text" name="price" ><br><br>
+        Description: <textarea name="description"></textarea><br><br>
+        address: <input type="text" name="address" ><br><br>
+        sqft : <input type="text" name="sqft"><br><br>
+        <input type="submit">
+    </form>
+</center>
+</body>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{%load static %}
+{% block content %}
+<h3><b><u>pRoFiLe iNfOrMaTioN</u></b></h3>
+<p><b>PROFILE_PIC: </b></p>
+<p><img src="{{user.profile.profile_pic.url}}"></p><br>
+<p><b>NAME:</b>{{user.first_name}}  {{user.last_name}}</p>
+<p><b>USERNAME:</b>{{user.username}}</p>
+<p><b>EMAIL:</b>{{user.email}}</p>
+<p><b>CONTACT no:</b> {{user.profile.phone}}</p>
+<p><b>GENDER: </b>{{user.profile.gender}}</p>
+<p><b>BIRTHDATE: </b>{{user.profile.birth_date}}</p>
+<p><b>ROLE: </b> {{user.profile.role}}</p><br><br>
+
+
+<a href="{% url 'home' %}"> CLICk HERE FOR HOME PAGE</a><br>
+
+{% endblock %}
